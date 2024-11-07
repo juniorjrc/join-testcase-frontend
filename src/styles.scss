@@ -1,4 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+    background-color: #04fb4c;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #4e1256;
+}
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+button {
+    background-color: #fa05b3;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: darken(#fa05b3, 10%);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+        border: 1px solid darken(#fa05b3, 10%);
+    }
+
+    &:active {
+        background-color: #03dac6;
+        transform: translateY(0);
+    }
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.3);
+}
+
+mat-toolbar,
+mat-card {
+    background-color: #530058 !important;
+    color: white !important;
+}
+
+mat-label,
+input {
+    color: white !important;
+}
