@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav *ngIf="isLoggedIn" #sidenav mode="side" closed>
+    <mat-nav-list>
+      <mat-list-item routerLink="/products" (onKeyPress)="sidenav.close()">Products</mat-list-item>
+      <mat-list-item routerLink="/categories" (onKeyPress)="sidenav.close()">Categories</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isLoggedIn">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="title">Join Test Case</span>
+
+      <button mat-raised-button color="primary" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
