@@ -12,7 +12,7 @@ import { AuthService } from "src/app/auth/auth.service";
 })
 export class ProductListComponent implements OnInit {
   products = new MatTableDataSource<any>();
-  displayedColumns: string[] = ["id", "name", "actions"];
+  displayedColumns: string[] = ["id", "name", "description", "category", "price", "actions"];
   totalElements = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
