@@ -1,0 +1,49 @@
+<div mat-dialog-title class="add-product-title">
+    {{ isEditMode ? 'Edit Product' : 'Add New Product' }}
+</div>
+<mat-dialog-content class="custom-dialog-content">
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput [(ngModel)]="product.productName" name="productName" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput [(ngModel)]="product.productDescription" name="productDescription">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="selectedCategory" name="selectedCategory" [disabled]="isEditMode" required>
+                <mat-option *ngFor="let category of categories" [value]="category">
+                    {{ category.categoryName }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" [(ngModel)]="product.price" name="price" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Technical specifications</mat-label>
+            <input matInput [(ngModel)]="product.technicalSpecifications" name="technicalSpecifications">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>IMEI</mat-label>
+            <input matInput [(ngModel)]="product.imeiNumber" name="imeiNumber">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Operating system</mat-label>
+            <input matInput [(ngModel)]="product.operatingSystem" name="operatingSystem">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" (click)="onSave()">{{ isEditMode ? 'Save Changes' : 'Save' }}</button>
+</mat-dialog-actions>
